@@ -16,6 +16,12 @@ public class Converter {
 			
 		case 4:
 			return "IV";
+			
+		case 5:
+			return "V";
+			
+		case 6:
+			return "VI";	
 
 		default:
 			break;

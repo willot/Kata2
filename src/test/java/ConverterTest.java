@@ -29,5 +29,17 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals("IV", converter.converterArabicNumberIntoRomanNUmeral(4));
 	}
+	
+	@Test
+	public void testConvert5IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("V", converter.converterArabicNumberIntoRomanNUmeral(5));
+	}
+	
+	@Test
+	public void testConvert6IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("VI", converter.converterArabicNumberIntoRomanNUmeral(6));
+	}
 
 }
