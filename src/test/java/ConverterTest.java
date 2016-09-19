@@ -94,5 +94,24 @@ public class ConverterTest {
 		assertEquals("CXXVII", converter.converterArabicNumberIntoRomanNUmeral(127));
 		assertEquals("CXXXIX", converter.converterArabicNumberIntoRomanNUmeral(139));
 	}
+	
+	public void testConvertnumbersBetween140and200IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("CXL", converter.converterArabicNumberIntoRomanNUmeral(140));
+		assertEquals("CL", converter.converterArabicNumberIntoRomanNUmeral(150));
+		assertEquals("CLXV", converter.converterArabicNumberIntoRomanNUmeral(165));
+		assertEquals("CLXXIX", converter.converterArabicNumberIntoRomanNUmeral(179));
+		assertEquals("CLXXXIV", converter.converterArabicNumberIntoRomanNUmeral(184));
+		assertEquals("CLXXXIXS", converter.converterArabicNumberIntoRomanNUmeral(189));
+		assertEquals("CC", converter.converterArabicNumberIntoRomanNUmeral(200));
+	}
+	
+	public void testConvertnumbersBetween200and400IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("CCXLVIII", converter.converterArabicNumberIntoRomanNUmeral(248));
+		assertEquals("CCXCI", converter.converterArabicNumberIntoRomanNUmeral(291));
+		assertEquals("CCCXLV", converter.converterArabicNumberIntoRomanNUmeral(345));
+		assertEquals("CCCLXXXIX", converter.converterArabicNumberIntoRomanNUmeral(389));
+		}
 
 }
