@@ -41,5 +41,17 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals("VI", converter.converterArabicNumberIntoRomanNUmeral(6));
 	}
+	
+	@Test
+	public void testConvert8IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("VIII", converter.converterArabicNumberIntoRomanNUmeral(8));
+	}
+	
+	@Test
+	public void testConvert9IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("IX", converter.converterArabicNumberIntoRomanNUmeral(9));
+	}
 
 }
