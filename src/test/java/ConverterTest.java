@@ -63,14 +63,25 @@ public class ConverterTest {
 	@Test
 	public void testConvertnumbersBetween10and39IntoRomanNumeral() throws Exception {
 		Converter converter = new Converter();
-//		assertEquals("XV", converter.converterArabicNumberIntoRomanNUmeral(15));
-//		assertEquals("XXII", converter.converterArabicNumberIntoRomanNUmeral(22));
+		assertEquals("XV", converter.converterArabicNumberIntoRomanNUmeral(15));
+		assertEquals("XXII", converter.converterArabicNumberIntoRomanNUmeral(22));
 		assertEquals("XXX", converter.converterArabicNumberIntoRomanNUmeral(30));
-//		assertEquals("XXXIII", converter.converterArabicNumberIntoRomanNUmeral(33));
-//		assertEquals("XXXVII", converter.converterArabicNumberIntoRomanNUmeral(37));
-//		assertEquals("XXIX", converter.converterArabicNumberIntoRomanNUmeral(39));
+		assertEquals("XXXIII", converter.converterArabicNumberIntoRomanNUmeral(33));
+		assertEquals("XXXVII", converter.converterArabicNumberIntoRomanNUmeral(37));
+		assertEquals("XXXIX", converter.converterArabicNumberIntoRomanNUmeral(39));
 	}
 	
+	
+	@Test
+	public void testConvertnumbersBetween40and89IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("XL", converter.converterArabicNumberIntoRomanNUmeral(40));
+		assertEquals("LII", converter.converterArabicNumberIntoRomanNUmeral(52));
+		assertEquals("LXIV", converter.converterArabicNumberIntoRomanNUmeral(64));
+		assertEquals("LXXIX", converter.converterArabicNumberIntoRomanNUmeral(79));
+		assertEquals("LXXXV", converter.converterArabicNumberIntoRomanNUmeral(85));
+		assertEquals("LXXXIX", converter.converterArabicNumberIntoRomanNUmeral(89));
+	}
 
 
 }
