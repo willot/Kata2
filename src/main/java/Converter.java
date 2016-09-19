@@ -1,32 +1,41 @@
 
 public class Converter {
+	
+	private String[] romanNumberReference= {"V","IV","I"};
+	private Integer[] arabicNumberReferences= {5,4,1};
 
 	public String converterArabicNumberIntoRomanNUmeral(int arabicNumber) {
+		 int remainingOfArabicNumber = arabicNumber;
+		 String romanNumeral = "";
 		
-		switch (arabicNumber) {
-		case 1:
-			return "I";
-			
-			
-		case 2:
-			return "II";
+	for (int index = 0; index < arabicNumberReferences.length; index++) {
 		
-		case 3:
-			return "III";
-			
-		case 4:
-			return "IV";
-			
-		case 5:
-			return "V";
-			
-		case 6:
-			return "VI";	
+		int arabicNumberFromArrayReference = arabicNumberReferences[index];
+				
+				if(arabicNumber == arabicNumberFromArrayReference ) {
+					System.out.println("HERE");
+					 romanNumeral = romanNumberReference[index];
+					return romanNumeral;
+				}
+				
+				
+				int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
 
-		default:
-			break;
-		}
-		return "I";
+				 if (quotientOfArabicNumber>0) {
+					 System.out.println("HERE");
+					 while (quotientOfArabicNumber >0) {
+						 quotientOfArabicNumber --;
+						 romanNumeral += romanNumberReference[index];
+						 remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArrayReference;
+					 }
+				 }
+				
+				
+					
+	}
+	 return romanNumeral;
+	
+
 	}
 
 }
