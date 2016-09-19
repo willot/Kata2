@@ -9,7 +9,7 @@ public class Converter {
 		 String romanNumeral = "";
 		
 	for (int index = 0; index < arabicNumberReferences.length; index++) {
-		
+		System.out.println("Iam here");
 		int arabicNumberFromArrayReference = arabicNumberReferences[index];
 				
 		if(arabicNumber == arabicNumberFromArrayReference ) {

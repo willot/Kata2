@@ -60,6 +60,17 @@ public class ConverterTest {
 		assertEquals("X", converter.converterArabicNumberIntoRomanNUmeral(10));
 	}
 	
+	@Test
+	public void testConvertnumbersBetween10and39IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+//		assertEquals("XV", converter.converterArabicNumberIntoRomanNUmeral(15));
+//		assertEquals("XXII", converter.converterArabicNumberIntoRomanNUmeral(22));
+		assertEquals("XXX", converter.converterArabicNumberIntoRomanNUmeral(30));
+//		assertEquals("XXXIII", converter.converterArabicNumberIntoRomanNUmeral(33));
+//		assertEquals("XXXVII", converter.converterArabicNumberIntoRomanNUmeral(37));
+//		assertEquals("XXIX", converter.converterArabicNumberIntoRomanNUmeral(39));
+	}
+	
 
 
 }
