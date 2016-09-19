@@ -95,6 +95,7 @@ public class ConverterTest {
 		assertEquals("CXXXIX", converter.converterArabicNumberIntoRomanNUmeral(139));
 	}
 	
+	@Test
 	public void testConvertnumbersBetween140and200IntoRomanNumeral() throws Exception {
 		Converter converter = new Converter();
 		assertEquals("CXL", converter.converterArabicNumberIntoRomanNUmeral(140));
@@ -102,16 +103,30 @@ public class ConverterTest {
 		assertEquals("CLXV", converter.converterArabicNumberIntoRomanNUmeral(165));
 		assertEquals("CLXXIX", converter.converterArabicNumberIntoRomanNUmeral(179));
 		assertEquals("CLXXXIV", converter.converterArabicNumberIntoRomanNUmeral(184));
-		assertEquals("CLXXXIXS", converter.converterArabicNumberIntoRomanNUmeral(189));
+		assertEquals("CLXXXIX", converter.converterArabicNumberIntoRomanNUmeral(189));
 		assertEquals("CC", converter.converterArabicNumberIntoRomanNUmeral(200));
 	}
 	
+	
+	@Test
 	public void testConvertnumbersBetween200and400IntoRomanNumeral() throws Exception {
 		Converter converter = new Converter();
 		assertEquals("CCXLVIII", converter.converterArabicNumberIntoRomanNUmeral(248));
 		assertEquals("CCXCI", converter.converterArabicNumberIntoRomanNUmeral(291));
 		assertEquals("CCCXLV", converter.converterArabicNumberIntoRomanNUmeral(345));
 		assertEquals("CCCLXXXIX", converter.converterArabicNumberIntoRomanNUmeral(389));
+		}
+	
+	
+	@Test
+	public void testConvertnumbersBetween400and899IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("CD", converter.converterArabicNumberIntoRomanNUmeral(400));
+		assertEquals("D", converter.converterArabicNumberIntoRomanNUmeral(500));
+		assertEquals("DXLIX", converter.converterArabicNumberIntoRomanNUmeral(549));
+		assertEquals("DCLXXXIX", converter.converterArabicNumberIntoRomanNUmeral(689));
+		assertEquals("DCCXV", converter.converterArabicNumberIntoRomanNUmeral(715));
+		assertEquals("DCCCXCIX", converter.converterArabicNumberIntoRomanNUmeral(899));
 		}
 
 }
