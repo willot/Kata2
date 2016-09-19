@@ -1,8 +1,8 @@
 
 public class Converter {
 	
-	private String[] romanNumberReference= {"L","XL","X","IX","V","IV","I"};
-	private Integer[] arabicNumberReferences= {50,40,10,9,5,4,1};
+	private String[] romanNumberReference= {"C","XC","L","XL","X","IX","V","IV","I"};
+	private Integer[] arabicNumberReferences= {100,90,50,40,10,9,5,4,1};
 
 	public String converterArabicNumberIntoRomanNUmeral(int arabicNumber) {
 		 int remainingOfArabicNumber = arabicNumber;

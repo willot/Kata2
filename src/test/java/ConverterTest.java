@@ -83,5 +83,16 @@ public class ConverterTest {
 		assertEquals("LXXXIX", converter.converterArabicNumberIntoRomanNUmeral(89));
 	}
 
+	
+	@Test
+	public void testConvertnumbersBetween90and139IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("XCI", converter.converterArabicNumberIntoRomanNUmeral(91));
+		assertEquals("XCIX", converter.converterArabicNumberIntoRomanNUmeral(99));
+		assertEquals("C", converter.converterArabicNumberIntoRomanNUmeral(100));
+		assertEquals("CXVIII", converter.converterArabicNumberIntoRomanNUmeral(118));
+		assertEquals("CXXVII", converter.converterArabicNumberIntoRomanNUmeral(127));
+		assertEquals("CXXXIX", converter.converterArabicNumberIntoRomanNUmeral(139));
+	}
 
 }
