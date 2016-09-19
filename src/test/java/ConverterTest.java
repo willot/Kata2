@@ -142,5 +142,13 @@ public class ConverterTest {
 		assertEquals("MMMCCXLVIII", converter.converterArabicNumberIntoRomanNUmeral(3248));
 		assertEquals("MMMCMXCIX", converter.converterArabicNumberIntoRomanNUmeral(3999));
 		}
+	
+	@Test
+	public void testHandleNegativeValueOrValueAbove3999() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("This is not a valid number for roman numeral", converter.converterArabicNumberIntoRomanNUmeral(-1));
+		assertEquals("This is not a valid number for roman numeral", converter.converterArabicNumberIntoRomanNUmeral(4000));
+		assertEquals("This is not a valid number for roman numeral", converter.converterArabicNumberIntoRomanNUmeral(-2565));
+	}
 
 }

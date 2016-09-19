@@ -7,35 +7,47 @@ public class Converter {
 	public String converterArabicNumberIntoRomanNUmeral(int arabicNumber) {
 		 int remainingOfArabicNumber = arabicNumber;
 		 String romanNumeral = "";
+		 
+		if (checkIfArabicNumberCanBeConvertedIntoRomanNumeral(arabicNumber)){
+			romanNumeral = "This is not a valid number for roman numeral";
+			return romanNumeral;
+		};
 		
-	for (int index = 0; index < arabicNumberReferences.length; index++) {
-		int arabicNumberFromArrayReference = arabicNumberReferences[index];
-				
-		if(arabicNumber == arabicNumberFromArrayReference ) {
-			romanNumeral = romanNumberReference[index];
-			return romanNumeral;
-		}
-				
-				
-		int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
-
-		if (quotientOfArabicNumber>0) {
-			 while (quotientOfArabicNumber >0) {
-				quotientOfArabicNumber --;
-				romanNumeral += romanNumberReference[index];
-				remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArrayReference;
-			}
-		}
-				
-		if(remainingOfArabicNumber== 0){
-			return romanNumeral;
-		}
-				
+		for (int index = 0; index < arabicNumberReferences.length; index++) {
+			int arabicNumberFromArrayReference = arabicNumberReferences[index];
 					
-	}
-	 return romanNumeral;
+			if(arabicNumber == arabicNumberFromArrayReference ) {
+				romanNumeral = romanNumberReference[index];
+				return romanNumeral;
+			}
+					
+					
+			int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
+	
+			if (quotientOfArabicNumber>0) {
+				 while (quotientOfArabicNumber >0) {
+					quotientOfArabicNumber --;
+					romanNumeral += romanNumberReference[index];
+					remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArrayReference;
+				}
+			}
+					
+			if(remainingOfArabicNumber== 0){
+				return romanNumeral;
+			}
+					
+						
+		}
+		 return romanNumeral;
 	
 
+	}
+
+	private Boolean checkIfArabicNumberCanBeConvertedIntoRomanNumeral(int arabicNumber) {
+		if(arabicNumber < 0 || arabicNumber >3999){
+			return true;
+		}
+		return false;
 	}
 
 }
