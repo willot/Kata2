@@ -1,8 +1,8 @@
 
 public class Converter {
 	
-	private String[] romanNumberReference= {"IX","V","IV","I"};
-	private Integer[] arabicNumberReferences= {9,5,4,1};
+	private String[] romanNumberReference= {"X","IX","V","IV","I"};
+	private Integer[] arabicNumberReferences= {10,9,5,4,1};
 
 	public String converterArabicNumberIntoRomanNUmeral(int arabicNumber) {
 		 int remainingOfArabicNumber = arabicNumber;
@@ -12,22 +12,25 @@ public class Converter {
 		
 		int arabicNumberFromArrayReference = arabicNumberReferences[index];
 				
-				if(arabicNumber == arabicNumberFromArrayReference ) {
-					 romanNumeral = romanNumberReference[index];
-					return romanNumeral;
-				}
+		if(arabicNumber == arabicNumberFromArrayReference ) {
+			romanNumeral = romanNumberReference[index];
+			return romanNumeral;
+		}
 				
 				
-				int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
+		int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
 
-				 if (quotientOfArabicNumber>0) {
-					 while (quotientOfArabicNumber >0) {
-						 quotientOfArabicNumber --;
-						 romanNumeral += romanNumberReference[index];
-						 remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArrayReference;
-					 }
-				 }
+		if (quotientOfArabicNumber>0) {
+			 while (quotientOfArabicNumber >0) {
+				quotientOfArabicNumber --;
+				romanNumeral += romanNumberReference[index];
+				remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArrayReference;
+			}
+		}
 				
+		if(remainingOfArabicNumber== 0){
+			return romanNumeral;
+		}
 				
 					
 	}

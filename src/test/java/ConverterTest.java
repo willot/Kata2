@@ -53,5 +53,13 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals("IX", converter.converterArabicNumberIntoRomanNUmeral(9));
 	}
+	
+	@Test
+	public void testConvert10IntoRomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals("X", converter.converterArabicNumberIntoRomanNUmeral(10));
+	}
+	
+
 
 }
