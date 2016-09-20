@@ -44,4 +44,9 @@ public class Converter {
 		return false;
 	}
 
+
+	public int converterRomanNUmeralIntoArabicNumber(String string) {
+		return 1;
+	}
+
 }

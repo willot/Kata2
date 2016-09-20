@@ -152,5 +152,12 @@ public class ConverterTest {
 	}
 	
 	
+	@Test
+	public void testConvertIIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(1, converter.converterRomanNUmeralIntoArabicNumber("I"));
+		
+	}
+	
 
 }
