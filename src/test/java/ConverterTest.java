@@ -181,5 +181,23 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals(5, converter.converterRomanNUmeralIntoArabicNumber("V"));
 	}
+	
+	@Test
+	public void testConvertVIIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(6, converter.converterRomanNUmeralIntoArabicNumber("VI"));
+	}
+	
+	@Test
+	public void testConvertVIIIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(7, converter.converterRomanNUmeralIntoArabicNumber("VII"));
+	}
+	
+	@Test
+	public void testConvertVIIIIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(8, converter.converterRomanNUmeralIntoArabicNumber("VIII"));
+	}
 
 }

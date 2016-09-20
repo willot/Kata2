@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class Converter {
 	
@@ -47,18 +49,38 @@ public class Converter {
 
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
+		int lengthOfString = romanNumber.length();
 		
-		if(romanNumber == "IV"){
-			arabicNumber =4;
-		}
-		else if (romanNumber == "V") {
-			arabicNumber =5;
+		HashMap<String, Integer> romanToArabicValue = new HashMap<String, Integer>();
+		romanToArabicValue.put("I",1);
+		romanToArabicValue.put("IV",4);
+		romanToArabicValue.put("V",5);
+		
+		if(lengthOfString == 1){
+			arabicNumber =romanToArabicValue.get(romanNumber);
 		}
 		else{
-			int lengthOfString = romanNumber.length();
-			while (arabicNumber<lengthOfString) {
-			arabicNumber ++;
+			String[] splitRomanNumeral = romanNumber.split("");
+			
+			while (splitRomanNumeral.length >0) {
+				
+				if( splitRomanNumeral.length == 1 ) {
+					arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+					return arabicNumber;
+				}
+				
+				if(romanToArabicValue.get(splitRomanNumeral[0]) < romanToArabicValue.get(splitRomanNumeral[1])) {
+					arabicNumber += romanToArabicValue.get(splitRomanNumeral[0] + splitRomanNumeral[1]);
+					splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,2,splitRomanNumeral.length);
+				}
+				
+				else {arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+				splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
+				}
+				
 			}
+			
+			
 		}
 		
 		return arabicNumber;
