@@ -51,6 +51,9 @@ public class Converter {
 		if(romanNumber == "IV"){
 			arabicNumber =4;
 		}
+		else if (romanNumber == "V") {
+			arabicNumber =5;
+		}
 		else{
 			int lengthOfString = romanNumber.length();
 			while (arabicNumber<lengthOfString) {

@@ -175,5 +175,11 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals(4, converter.converterRomanNUmeralIntoArabicNumber("IV"));
 	}
+	
+	@Test
+	public void testConvertVIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(5, converter.converterRomanNUmeralIntoArabicNumber("V"));
+	}
 
 }
