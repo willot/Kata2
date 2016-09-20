@@ -169,5 +169,11 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals(3, converter.converterRomanNUmeralIntoArabicNumber("III"));
 	}
+	
+	@Test
+	public void testConvertIVIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(4, converter.converterRomanNUmeralIntoArabicNumber("IV"));
+	}
 
 }

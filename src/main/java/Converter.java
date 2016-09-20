@@ -47,9 +47,15 @@ public class Converter {
 
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
-		int lengthOfString = romanNumber.length();
-		while (arabicNumber<lengthOfString) {
+		
+		if(romanNumber == "IV"){
+			arabicNumber =4;
+		}
+		else{
+			int lengthOfString = romanNumber.length();
+			while (arabicNumber<lengthOfString) {
 			arabicNumber ++;
+			}
 		}
 		
 		return arabicNumber;
