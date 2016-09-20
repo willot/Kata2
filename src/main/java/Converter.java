@@ -15,34 +15,29 @@ public class Converter {
 		
 		for (int index = 0; index < arabicNumberReferences.length; index++) {
 			int arabicNumberFromArrayReference = arabicNumberReferences[index];
+			String matchingRomanNumeralToArabicNumberFromArrayReference = romanNumberReference[index];
 					
 			if(arabicNumber == arabicNumberFromArrayReference ) {
 				romanNumeral = romanNumberReference[index];
+				
 				return romanNumeral;
 			}
-					
 					
 			int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
 	
 			if (quotientOfArabicNumber>0) {
-				 while (quotientOfArabicNumber >0) {
-					quotientOfArabicNumber --;
-					romanNumeral += romanNumberReference[index];
-					remainingOfArabicNumber = remainingOfArabicNumber - arabicNumberFromArrayReference;
-				}
+				remainingOfArabicNumber = remainingOfArabicNumber -quotientOfArabicNumber*arabicNumberFromArrayReference;
+				romanNumeral = romanNumeral + new String(new char[quotientOfArabicNumber]).replace("\0", matchingRomanNumeralToArabicNumberFromArrayReference);	
 			}
 					
 			if(remainingOfArabicNumber== 0){
 				return romanNumeral;
 			}
-					
-						
 		}
 		 return romanNumeral;
-	
-
 	}
 
+	
 	private Boolean checkIfArabicNumberCanBeConvertedIntoRomanNumeral(int arabicNumber) {
 		if(arabicNumber < 0 || arabicNumber >3999){
 			return true;
