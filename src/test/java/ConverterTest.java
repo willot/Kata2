@@ -156,8 +156,18 @@ public class ConverterTest {
 	public void testConvertIIntoArabicNumber() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(1, converter.converterRomanNUmeralIntoArabicNumber("I"));
-		
 	}
 	
+	@Test
+	public void testConvertIIIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(2, converter.converterRomanNUmeralIntoArabicNumber("II"));
+	}
+	
+	@Test
+	public void testConvertIIIIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(3, converter.converterRomanNUmeralIntoArabicNumber("III"));
+	}
 
 }

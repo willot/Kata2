@@ -45,8 +45,14 @@ public class Converter {
 	}
 
 
-	public int converterRomanNUmeralIntoArabicNumber(String string) {
-		return 1;
+	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
+		int arabicNumber =0;
+		int lengthOfString = romanNumber.length();
+		while (arabicNumber<lengthOfString) {
+			arabicNumber ++;
+		}
+		
+		return arabicNumber;
 	}
 
 }
