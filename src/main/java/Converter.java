@@ -18,8 +18,7 @@ public class Converter {
 			String matchingRomanNumeralToArabicNumberFromArrayReference = romanNumberReference[index];
 					
 			if(arabicNumber == arabicNumberFromArrayReference ) {
-				romanNumeral = romanNumberReference[index];
-				
+				romanNumeral = matchingRomanNumeralToArabicNumberFromArrayReference;
 				return romanNumeral;
 			}
 					
