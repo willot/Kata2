@@ -50,12 +50,16 @@ public class Converter {
 		int arabicNumber =0;
 		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
+		
+		if (!isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)){
+			return arabicNumber;
+		}
 
-		if(isLengthOfRomanNumberEqualToOne(romanNumber)){
+		else if(isLengthOfRomanNumberEqualToOne(romanNumber)){
 			return romanToArabicValue.get(romanNumber);
 		}
 		
-		else if (isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)) {
+		else{
 			while (splitRomanNumeral.length >0) {
 				
 				if( splitRomanNumeral.length == 1 ) {

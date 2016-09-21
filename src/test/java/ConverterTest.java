@@ -278,5 +278,6 @@ public class ConverterTest {
 	public void testConvertRomanNumeralCheckIfStringGivenIsARomanNumeral() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(0, converter.converterRomanNUmeralIntoArabicNumber("CMZ"));
+		assertEquals(0, converter.converterRomanNUmeralIntoArabicNumber("B"));
 	}
 }
