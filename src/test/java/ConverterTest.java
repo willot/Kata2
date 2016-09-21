@@ -199,5 +199,26 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		assertEquals(8, converter.converterRomanNUmeralIntoArabicNumber("VIII"));
 	}
+	
+	@Test
+	public void testConvertIXIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(9, converter.converterRomanNUmeralIntoArabicNumber("IX"));
+	}
+	
+	@Test
+	public void testConvertXIntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(10, converter.converterRomanNUmeralIntoArabicNumber("X"));
+	}
+	@Test
+	public void testConvertNumeralBetween11and39ntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(12, converter.converterRomanNUmeralIntoArabicNumber("XII"));
+		assertEquals(20, converter.converterRomanNUmeralIntoArabicNumber("XX"));
+		assertEquals(25, converter.converterRomanNUmeralIntoArabicNumber("XXV"));
+		assertEquals(28, converter.converterRomanNUmeralIntoArabicNumber("XXVIII"));
+		assertEquals(39, converter.converterRomanNUmeralIntoArabicNumber("XXXIX"));
+	}
 
 }

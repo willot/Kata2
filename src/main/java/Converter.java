@@ -55,6 +55,8 @@ public class Converter {
 		romanToArabicValue.put("I",1);
 		romanToArabicValue.put("IV",4);
 		romanToArabicValue.put("V",5);
+		romanToArabicValue.put("IX",9);
+		romanToArabicValue.put("X",10);
 		
 		if(lengthOfString == 1){
 			arabicNumber =romanToArabicValue.get(romanNumber);
