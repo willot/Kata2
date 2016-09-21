@@ -49,17 +49,14 @@ public class Converter {
 
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
-		int lengthOfString = romanNumber.length();
-		
 		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
 
-				
-		if(lengthOfString == 1){
-			arabicNumber =romanToArabicValue.get(romanNumber);
+		if(isLengthOfRomanNumberEqualToOne(romanNumber)){
+			arabicNumber = romanToArabicValue.get(romanNumber);
 		}
 		
-		else if (checkIfStringIsARomanNumeral(romanToArabicValue, splitRomanNumeral)) {
+		else if (isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)) {
 			while (splitRomanNumeral.length >0) {
 				
 				if( splitRomanNumeral.length == 1 ) {
@@ -75,16 +72,17 @@ public class Converter {
 				else {arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
 				splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,1);
 				}
-				
 			}
-			
 		}
-		
-		else{
-			return -1;
-		}
-		
 		return arabicNumber;
+	}
+
+
+	private boolean isLengthOfRomanNumberEqualToOne(String romanNumber) {
+		if (romanNumber.length() == 1){
+			return true;
+		}
+		return false;
 	}
 
 
@@ -93,7 +91,7 @@ public class Converter {
 	}
 
 
-	private boolean checkIfStringIsARomanNumeral(HashMap<String, Integer> romanToArabicValue, String[] splitRomanNumeral) {
+	private boolean isRomanNumberARealRomanNumeral(HashMap<String, Integer> romanToArabicValue, String[] splitRomanNumeral) {
 		for (int index = 0; index < splitRomanNumeral.length; index++) {
 			if (romanToArabicValue.get(splitRomanNumeral[index]) == null) {
 				return false;
