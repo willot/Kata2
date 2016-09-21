@@ -50,7 +50,6 @@ public class Converter {
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
 		int lengthOfString = romanNumber.length();
-		boolean isStringRomanNumeral = true;
 		
 		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
@@ -70,11 +69,11 @@ public class Converter {
 				
 				if(romanToArabicValue.get(splitRomanNumeral[0]) < romanToArabicValue.get(splitRomanNumeral[1])) {
 					arabicNumber += romanToArabicValue.get(splitRomanNumeral[0] + splitRomanNumeral[1]);
-					splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,2,splitRomanNumeral.length);
+					splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,2);
 				}
 				
 				else {arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
-				splitRomanNumeral = Arrays.copyOfRange(splitRomanNumeral,1,splitRomanNumeral.length);
+				splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,1);
 				}
 				
 			}
@@ -82,11 +81,15 @@ public class Converter {
 		}
 		
 		else{
-			
 			return -1;
 		}
 		
 		return arabicNumber;
+	}
+
+
+	private String[] createNewArrayOfSmallerSize(String[] oldArray, int indexWhereNewArrayStart) {
+		return Arrays.copyOfRange(oldArray,indexWhereNewArrayStart,oldArray.length);
 	}
 
 
