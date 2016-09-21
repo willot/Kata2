@@ -212,7 +212,7 @@ public class ConverterTest {
 		assertEquals(10, converter.converterRomanNUmeralIntoArabicNumber("X"));
 	}
 	@Test
-	public void testConvertNumeralBetween11and39ntoArabicNumber() throws Exception {
+	public void testConvertRomanNumeralBetween11and39ntoArabicNumber() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(12, converter.converterRomanNUmeralIntoArabicNumber("XII"));
 		assertEquals(20, converter.converterRomanNUmeralIntoArabicNumber("XX"));
@@ -222,7 +222,7 @@ public class ConverterTest {
 	}
 	
 	@Test
-	public void testConvertNumeralBetween39and89ntoArabicNumber() throws Exception {
+	public void testConvertRomanNumeralBetween39and89ntoArabicNumber() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(40, converter.converterRomanNUmeralIntoArabicNumber("XL"));
 		assertEquals(46, converter.converterRomanNUmeralIntoArabicNumber("XLVI"));
@@ -234,7 +234,7 @@ public class ConverterTest {
 	}
 	
 	@Test
-	public void testConvertNumeralBetween90and399ntoArabicNumber() throws Exception {
+	public void testConvertRomanNumeralBetween90and399ntoArabicNumber() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(90, converter.converterRomanNUmeralIntoArabicNumber("XC"));
 		assertEquals(100, converter.converterRomanNUmeralIntoArabicNumber("C"));
@@ -246,7 +246,7 @@ public class ConverterTest {
 	}
 	
 	@Test
-	public void testConvertNumeralBetween400and899ntoArabicNumber() throws Exception {
+	public void testConvertRomanNumeralBetween400and899ntoArabicNumber() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(400, converter.converterRomanNUmeralIntoArabicNumber("CD"));
 		assertEquals(469, converter.converterRomanNUmeralIntoArabicNumber("CDLXIX"));
@@ -259,7 +259,7 @@ public class ConverterTest {
 	}
 	
 	@Test
-	public void testConvertNumeralBetween900and3999ntoArabicNumber() throws Exception {
+	public void testConvertRomanNumeralBetween900and3999ntoArabicNumber() throws Exception {
 		Converter converter = new Converter();
 		assertEquals(900, converter.converterRomanNUmeralIntoArabicNumber("CM"));
 		assertEquals(953, converter.converterRomanNUmeralIntoArabicNumber("CMLIII"));
@@ -273,5 +273,10 @@ public class ConverterTest {
 		assertEquals(3668, converter.converterRomanNUmeralIntoArabicNumber("MMMDCLXVIII"));
 		assertEquals(3999, converter.converterRomanNUmeralIntoArabicNumber("MMMCMXCIX"));
 	}
-
+	
+	@Test
+	public void testConvertRomanNumeralCheckIfStringGivenIsARomanNumeral() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(-1, converter.converterRomanNUmeralIntoArabicNumber("CMZ"));
+	}
 }

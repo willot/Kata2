@@ -50,15 +50,23 @@ public class Converter {
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
 		int lengthOfString = romanNumber.length();
+		boolean isStringRomanNumeral = true;
 		
 		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
+		String[] splitRomanNumeral = romanNumber.split("");
+
+		for (int index = 0; index < splitRomanNumeral.length; index++) {
+			if (romanToArabicValue.get(splitRomanNumeral[index]) == null) {
+				isStringRomanNumeral = false;
+				break;
+			}
+		}
 		
 		if(lengthOfString == 1){
 			arabicNumber =romanToArabicValue.get(romanNumber);
 		}
-		else{
-			String[] splitRomanNumeral = romanNumber.split("");
-			
+		
+		else if (isStringRomanNumeral == true) {
 			while (splitRomanNumeral.length >0) {
 				
 				if( splitRomanNumeral.length == 1 ) {
@@ -76,6 +84,12 @@ public class Converter {
 				}
 				
 			}
+			
+		}
+		
+		else{
+			
+			return -1;
 			
 			
 		}
