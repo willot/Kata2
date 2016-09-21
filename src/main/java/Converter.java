@@ -52,7 +52,7 @@ public class Converter {
 		String[] splitRomanNumeral = romanNumber.split("");
 
 		if(isLengthOfRomanNumberEqualToOne(romanNumber)){
-			arabicNumber = romanToArabicValue.get(romanNumber);
+			return romanToArabicValue.get(romanNumber);
 		}
 		
 		else if (isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)) {
