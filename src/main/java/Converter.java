@@ -21,8 +21,7 @@ public class Converter {
 			String matchingRomanNumeralToArabicNumberFromArrayReference = romanNumberReference[index];
 					
 			if(arabicNumber == arabicNumberFromArrayReference ) {
-				romanNumeral = matchingRomanNumeralToArabicNumberFromArrayReference;
-				return romanNumeral;
+				return matchingRomanNumeralToArabicNumberFromArrayReference;
 			}
 					
 			int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
