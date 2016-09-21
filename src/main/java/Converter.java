@@ -10,9 +10,8 @@ public class Converter {
 		 int remainingOfArabicNumber = arabicNumber;
 		 String romanNumeral = "";
 		 
-		if (checkIfArabicNumberCanBeConvertedIntoRomanNumeral(arabicNumber)){
-			romanNumeral = "This is not a valid number for roman numeral";
-			return romanNumeral;
+		if (isArabicNumberConvertibleIntoRomanNumeral(arabicNumber)){
+			return "This is not a valid number for roman numeral";
 		};
 		
 		for (int index = 0; index < arabicNumberReferences.length; index++) {
@@ -27,7 +26,7 @@ public class Converter {
 			int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
 	
 			if (quotientOfArabicNumber>0) {
-				remainingOfArabicNumber = remainingOfArabicNumber -quotientOfArabicNumber*arabicNumberFromArrayReference;
+				remainingOfArabicNumber -= quotientOfArabicNumber*arabicNumberFromArrayReference;
 				romanNumeral = romanNumeral + new String(new char[quotientOfArabicNumber]).replace("\0", matchingRomanNumeralToArabicNumberFromArrayReference);	
 			}
 					
@@ -39,7 +38,7 @@ public class Converter {
 	}
 
 	
-	private Boolean checkIfArabicNumberCanBeConvertedIntoRomanNumeral(int arabicNumber) {
+	private Boolean isArabicNumberConvertibleIntoRomanNumeral(int arabicNumber) {
 		if(arabicNumber < 0 || arabicNumber >3999){
 			return true;
 		}
