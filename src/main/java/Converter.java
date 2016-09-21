@@ -5,6 +5,8 @@ public class Converter {
 	
 	private String[] romanNumberReference= {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 	private Integer[] arabicNumberReferences= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
+	private HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
+	
 
 	public String converterArabicNumberIntoRomanNUmeral(int arabicNumber) {
 		 int remainingOfArabicNumber = arabicNumber;
@@ -48,7 +50,7 @@ public class Converter {
 
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
-		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
+//		romanToArabicValue = createRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
 		
 		if (!isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)){
@@ -76,8 +78,8 @@ public class Converter {
 				splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,1);
 				}
 			}
+			return arabicNumber;
 		}
-		return arabicNumber;
 	}
 
 
@@ -105,7 +107,7 @@ public class Converter {
 
 
 	private HashMap<String, Integer> createRomanToArabicValueHash() {
-		HashMap<String, Integer> romanToArabicValue = new HashMap<String, Integer>();
+		romanToArabicValue = new HashMap<String, Integer>();
 		romanToArabicValue.put("I",1);
 		romanToArabicValue.put("IV",4);
 		romanToArabicValue.put("V",5);
