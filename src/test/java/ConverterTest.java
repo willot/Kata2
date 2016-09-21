@@ -220,5 +220,17 @@ public class ConverterTest {
 		assertEquals(28, converter.converterRomanNUmeralIntoArabicNumber("XXVIII"));
 		assertEquals(39, converter.converterRomanNUmeralIntoArabicNumber("XXXIX"));
 	}
+	
+	@Test
+	public void testConvertNumeralBetween39and89ntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(40, converter.converterRomanNUmeralIntoArabicNumber("XL"));
+		assertEquals(46, converter.converterRomanNUmeralIntoArabicNumber("XLVI"));
+		assertEquals(50, converter.converterRomanNUmeralIntoArabicNumber("L"));
+		assertEquals(55, converter.converterRomanNUmeralIntoArabicNumber("LV"));
+		assertEquals(69, converter.converterRomanNUmeralIntoArabicNumber("LXIX"));
+		assertEquals(72, converter.converterRomanNUmeralIntoArabicNumber("LXXII"));
+		assertEquals(89, converter.converterRomanNUmeralIntoArabicNumber("LXXXIX"));
+	}
 
 }
