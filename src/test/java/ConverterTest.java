@@ -257,5 +257,21 @@ public class ConverterTest {
 		assertEquals(844, converter.converterRomanNUmeralIntoArabicNumber("DCCCXLIV"));
 		assertEquals(899, converter.converterRomanNUmeralIntoArabicNumber("DCCCXCIX"));
 	}
+	
+	@Test
+	public void testConvertNumeralBetween900and3999ntoArabicNumber() throws Exception {
+		Converter converter = new Converter();
+		assertEquals(900, converter.converterRomanNUmeralIntoArabicNumber("CM"));
+		assertEquals(953, converter.converterRomanNUmeralIntoArabicNumber("CMLIII"));
+		assertEquals(1000, converter.converterRomanNUmeralIntoArabicNumber("M"));
+		assertEquals(1287, converter.converterRomanNUmeralIntoArabicNumber("MCCLXXXVII"));
+		assertEquals(1697, converter.converterRomanNUmeralIntoArabicNumber("MDCXCVII"));
+		assertEquals(1999, converter.converterRomanNUmeralIntoArabicNumber("MCMXCIX"));
+		assertEquals(2000, converter.converterRomanNUmeralIntoArabicNumber("MM"));
+		assertEquals(2687, converter.converterRomanNUmeralIntoArabicNumber("MMDCLXXXVII"));
+		assertEquals(3158, converter.converterRomanNUmeralIntoArabicNumber("MMMCLVIII"));
+		assertEquals(3668, converter.converterRomanNUmeralIntoArabicNumber("MMMDCLXVIII"));
+		assertEquals(3999, converter.converterRomanNUmeralIntoArabicNumber("MMMCMXCIX"));
+	}
 
 }
