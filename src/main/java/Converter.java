@@ -61,6 +61,8 @@ public class Converter {
 		romanToArabicValue.put("L",50);
 		romanToArabicValue.put("XC",90);
 		romanToArabicValue.put("C",100);
+		romanToArabicValue.put("CD",400);
+		romanToArabicValue.put("D",500);
 		
 		if(lengthOfString == 1){
 			arabicNumber =romanToArabicValue.get(romanNumber);
