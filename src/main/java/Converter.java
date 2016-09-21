@@ -14,7 +14,7 @@ public class Converter {
 		 
 		if (isArabicNumberConvertibleIntoRomanNumeral(arabicNumber)){
 			return "This is not a valid number for roman numeral";
-		};
+		}
 		
 		for (int index = 0; index < arabicNumberReferences.length; index++) {
 			int arabicNumberFromArrayReference = arabicNumberReferences[index];
