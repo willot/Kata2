@@ -29,7 +29,8 @@ public class Converter {
 	
 			if (quotientOfArabicNumber>0) {
 				remainingOfArabicNumber -= quotientOfArabicNumber*arabicNumberFromArrayReference;
-				romanNumeral = romanNumeral + new String(new char[quotientOfArabicNumber]).replace("\0", matchingRomanNumeralToArabicNumberFromArrayReference);	
+				romanNumeral += repeatStringXtimes(matchingRomanNumeralToArabicNumberFromArrayReference,
+						quotientOfArabicNumber);	
 			}
 					
 			if(remainingOfArabicNumber== 0){
@@ -37,6 +38,12 @@ public class Converter {
 			}
 		}
 		 return romanNumeral;
+	}
+
+
+	private String repeatStringXtimes(String stringToRepeat,
+			int numberOfTimeTheStringIsAppended) {
+		return new String(new char[numberOfTimeTheStringIsAppended]).replace("\0", stringToRepeat);
 	}
 
 	
@@ -50,7 +57,6 @@ public class Converter {
 
 	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
-//		romanToArabicValue = createRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
 		
 		if (!isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)){
