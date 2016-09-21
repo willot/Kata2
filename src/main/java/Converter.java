@@ -51,20 +51,7 @@ public class Converter {
 		int arabicNumber =0;
 		int lengthOfString = romanNumber.length();
 		
-		HashMap<String, Integer> romanToArabicValue = new HashMap<String, Integer>();
-		romanToArabicValue.put("I",1);
-		romanToArabicValue.put("IV",4);
-		romanToArabicValue.put("V",5);
-		romanToArabicValue.put("IX",9);
-		romanToArabicValue.put("X",10);
-		romanToArabicValue.put("XL",40);
-		romanToArabicValue.put("L",50);
-		romanToArabicValue.put("XC",90);
-		romanToArabicValue.put("C",100);
-		romanToArabicValue.put("CD",400);
-		romanToArabicValue.put("D",500);
-		romanToArabicValue.put("CM",900);
-		romanToArabicValue.put("M",1000);
+		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
 		
 		if(lengthOfString == 1){
 			arabicNumber =romanToArabicValue.get(romanNumber);
@@ -94,6 +81,25 @@ public class Converter {
 		}
 		
 		return arabicNumber;
+	}
+
+
+	private HashMap<String, Integer> createRomanToArabicValueHash() {
+		HashMap<String, Integer> romanToArabicValue = new HashMap<String, Integer>();
+		romanToArabicValue.put("I",1);
+		romanToArabicValue.put("IV",4);
+		romanToArabicValue.put("V",5);
+		romanToArabicValue.put("IX",9);
+		romanToArabicValue.put("X",10);
+		romanToArabicValue.put("XL",40);
+		romanToArabicValue.put("L",50);
+		romanToArabicValue.put("XC",90);
+		romanToArabicValue.put("C",100);
+		romanToArabicValue.put("CD",400);
+		romanToArabicValue.put("D",500);
+		romanToArabicValue.put("CM",900);
+		romanToArabicValue.put("M",1000);
+		return romanToArabicValue;
 	}
 
 }
