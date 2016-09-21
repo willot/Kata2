@@ -55,18 +55,12 @@ public class Converter {
 		HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
 		String[] splitRomanNumeral = romanNumber.split("");
 
-		for (int index = 0; index < splitRomanNumeral.length; index++) {
-			if (romanToArabicValue.get(splitRomanNumeral[index]) == null) {
-				isStringRomanNumeral = false;
-				break;
-			}
-		}
-		
+				
 		if(lengthOfString == 1){
 			arabicNumber =romanToArabicValue.get(romanNumber);
 		}
 		
-		else if (isStringRomanNumeral == true) {
+		else if (checkIfStringIsARomanNumeral(romanToArabicValue, splitRomanNumeral)) {
 			while (splitRomanNumeral.length >0) {
 				
 				if( splitRomanNumeral.length == 1 ) {
@@ -90,11 +84,19 @@ public class Converter {
 		else{
 			
 			return -1;
-			
-			
 		}
 		
 		return arabicNumber;
+	}
+
+
+	private boolean checkIfStringIsARomanNumeral(HashMap<String, Integer> romanToArabicValue, String[] splitRomanNumeral) {
+		for (int index = 0; index < splitRomanNumeral.length; index++) {
+			if (romanToArabicValue.get(splitRomanNumeral[index]) == null) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 
