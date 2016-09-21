@@ -8,7 +8,7 @@ public class Converter {
 	private HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
 	
 
-	public String converterArabicNumberIntoRomanNUmeral(int arabicNumber) {
+	public String convertArabicNumberIntoRomanNUmeral(int arabicNumber) {
 		 int remainingOfArabicNumber = arabicNumber;
 		 String romanNumeral = "";
 		 
@@ -55,7 +55,7 @@ public class Converter {
 	}
 
 
-	public int converterRomanNUmeralIntoArabicNumber(String romanNumber) {
+	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
 		int arabicNumber =0;
 		String[] splitRomanNumeral = romanNumber.split("");
 		
