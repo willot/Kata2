@@ -55,16 +55,16 @@ public class Converter {
 	}
 
 
-	public int convertRomanNumeralIntoArabicNumber(String romanNumber) {
+	public int convertRomanNumeralIntoArabicNumber(String romanNumberToConvert) {
 		int arabicNumber =0;
-		String[] splitRomanNumeral = romanNumber.split("");
+		String[] splitRomanNumeral = romanNumberToConvert.split("");
 		
-		if (!isRomanNumberARealRomanNumeral(romanToArabicValueHash, splitRomanNumeral)){
+		if (!isRomanNumberARealRomanNumeral(splitRomanNumeral)){
 			return arabicNumber;
 		}
 
-		else if(isLengthOfRomanNumberEqualToOne(romanNumber)){
-			return romanToArabicValueHash.get(romanNumber);
+		else if(isLengthOfRomanNumberEqualToOne(romanNumberToConvert)){
+			return romanToArabicValueHash.get(romanNumberToConvert);
 		}
 		
 		else{
@@ -102,9 +102,9 @@ public class Converter {
 	}
 
 
-	private boolean isRomanNumberARealRomanNumeral(HashMap<String, Integer> romanToArabicValue, String[] splitRomanNumeral) {
+	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
 		for (int index = 0; index < splitRomanNumeral.length; index++) {
-			if (romanToArabicValue.get(splitRomanNumeral[index]) == null) {
+			if (romanToArabicValueHash.get(splitRomanNumeral[index]) == null) {
 				return false;
 			}
 		}
