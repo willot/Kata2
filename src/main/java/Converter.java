@@ -41,21 +41,7 @@ public class Converter {
 	}
 
 
-	private String repeatStringXtimes(String stringToRepeat,
-			int numberOfTimeTheStringIsAppended) {
-		return new String(new char[numberOfTimeTheStringIsAppended]).replace("\0", stringToRepeat);
-	}
-
-	
-	private Boolean isNumberConvertibleIntoRomanNumeral(int arabicNumber) {
-		if(arabicNumber < 0 || arabicNumber >3999){
-			return true;
-		}
-		return false;
-	}
-
-
-	public int convertRomanNumeralIntoArabicNumber(String romanNumberToConvert) {
+		public int convertRomanNumeralIntoArabicNumber(String romanNumberToConvert) {
 		int arabicNumber =0;
 		String[] splitRomanNumeral = romanNumberToConvert.split("");
 		
@@ -64,28 +50,45 @@ public class Converter {
 		}
 
 		else if(isLengthOfRomanNumberEqualToOne(romanNumberToConvert)){
-			return romanToArabicValueHash.get(romanNumberToConvert);
+			return matchingArabicNumber(romanNumberToConvert);
 		}
 		
 		else{
 			while (splitRomanNumeral.length >0) {
-				
+				String firstLetter = splitRomanNumeral[0];
 				if( splitRomanNumeral.length == 1 ) {
-					arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[0]);
+					arabicNumber += matchingArabicNumber(firstLetter);
 					return arabicNumber;
 				}
+				String secondLetter = splitRomanNumeral[1];
 				
-				if(romanToArabicValueHash.get(splitRomanNumeral[0]) < romanToArabicValueHash.get(splitRomanNumeral[1])) {
-					arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[1]) - romanToArabicValueHash.get(splitRomanNumeral[0]);
+				if(matchingArabicNumber(firstLetter) < matchingArabicNumber(secondLetter)) {
+					arabicNumber += matchingArabicNumber(secondLetter) - matchingArabicNumber(firstLetter);
 					splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,2);
 				}
 				
-				else {arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[0]);
+				else {arabicNumber += matchingArabicNumber(firstLetter);
 				splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,1);
 				}
 			}
 			return arabicNumber;
 		}
+	}
+		
+	private String repeatStringXtimes(String stringToRepeat, int numberOfTimeTheStringIsAppended) {
+			return new String(new char[numberOfTimeTheStringIsAppended]).replace("\0", stringToRepeat);
+	}
+
+		
+	private Boolean isNumberConvertibleIntoRomanNumeral(int arabicNumber) {
+		if(arabicNumber < 0 || arabicNumber >3999){
+			return true;
+		}
+		return false;
+	}
+		
+	private Integer matchingArabicNumber(String romanNumeral) {
+		return romanToArabicValueHash.get(romanNumeral);
 	}
 
 
