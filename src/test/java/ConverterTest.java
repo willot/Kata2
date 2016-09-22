@@ -295,6 +295,6 @@ public class ConverterTest {
 		thrown.expectMessage("This is not a Roman numeral");
 		
 		Converter converter = new Converter();
-		converter.convertRomanNumeralIntoArabicNumber("III");
+		converter.convertRomanNumeralIntoArabicNumber("JGH");
 	}
 }
