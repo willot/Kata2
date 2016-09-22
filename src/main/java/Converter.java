@@ -43,9 +43,9 @@ public class Converter {
 
 		public int convertRomanNumeralIntoArabicNumber(String romanNumberToConvert) {
 		int arabicNumber =0;
-		String[] splitRomanNumeral = romanNumberToConvert.split("");
+		String[] splitRomanNumeralToConvert = romanNumberToConvert.split("");
 		
-		if (!isRomanNumberARealRomanNumeral(splitRomanNumeral)){
+		if (!isRomanNumberARealRomanNumeral(splitRomanNumeralToConvert)){
 			return arabicNumber;
 		}
 
@@ -54,21 +54,21 @@ public class Converter {
 		}
 		
 		else{
-			while (splitRomanNumeral.length >0) {
-				String firstLetter = splitRomanNumeral[0];
-				if( splitRomanNumeral.length == 1 ) {
-					arabicNumber += matchingArabicNumber(firstLetter);
+			while (splitRomanNumeralToConvert.length >0) {
+				String firstLetterToConvert = splitRomanNumeralToConvert[0];
+				if( splitRomanNumeralToConvert.length == 1 ) {
+					arabicNumber += matchingArabicNumber(firstLetterToConvert);
 					return arabicNumber;
 				}
-				String secondLetter = splitRomanNumeral[1];
+				String secondLetterToConvert = splitRomanNumeralToConvert[1];
 				
-				if(matchingArabicNumber(firstLetter) < matchingArabicNumber(secondLetter)) {
-					arabicNumber += matchingArabicNumber(secondLetter) - matchingArabicNumber(firstLetter);
-					splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,2);
+				if(matchingArabicNumber(firstLetterToConvert) < matchingArabicNumber(secondLetterToConvert)) {
+					arabicNumber += matchingArabicNumber(secondLetterToConvert) - matchingArabicNumber(firstLetterToConvert);
+					splitRomanNumeralToConvert = createNewArrayOfSmallerSize(splitRomanNumeralToConvert,2);
 				}
 				
-				else {arabicNumber += matchingArabicNumber(firstLetter);
-				splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,1);
+				else {arabicNumber += matchingArabicNumber(firstLetterToConvert);
+				splitRomanNumeralToConvert = createNewArrayOfSmallerSize(splitRomanNumeralToConvert,1);
 				}
 			}
 			return arabicNumber;
