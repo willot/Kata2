@@ -76,7 +76,7 @@ public class Converter {
 				}
 				
 				if(romanToArabicValueHash.get(splitRomanNumeral[0]) < romanToArabicValueHash.get(splitRomanNumeral[1])) {
-					arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[0] + splitRomanNumeral[1]);
+					arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[1]) - romanToArabicValueHash.get(splitRomanNumeral[0]);
 					splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,2);
 				}
 				
@@ -115,17 +115,11 @@ public class Converter {
 	private HashMap<String, Integer> createRomanToArabicValueHash() {
 		romanToArabicValueHash = new HashMap<String, Integer>();
 		romanToArabicValueHash.put("I",1);
-		romanToArabicValueHash.put("IV",4);
 		romanToArabicValueHash.put("V",5);
-		romanToArabicValueHash.put("IX",9);
 		romanToArabicValueHash.put("X",10);
-		romanToArabicValueHash.put("XL",40);
 		romanToArabicValueHash.put("L",50);
-		romanToArabicValueHash.put("XC",90);
 		romanToArabicValueHash.put("C",100);
-		romanToArabicValueHash.put("CD",400);
 		romanToArabicValueHash.put("D",500);
-		romanToArabicValueHash.put("CM",900);
 		romanToArabicValueHash.put("M",1000);
 		return romanToArabicValueHash;
 	}
