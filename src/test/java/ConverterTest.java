@@ -307,5 +307,12 @@ public class ConverterTest {
 		converter.convertRomanNumeralIntoArabicNumber("IIII");
 	}
 	
-
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseStringIsrepeated4timesInMiddleOfString() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("XXCCCCV");
+	}
 }

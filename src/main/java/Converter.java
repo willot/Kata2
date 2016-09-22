@@ -114,17 +114,13 @@ public class Converter {
 			}
 			else{
 				String[] splittedRepeatedString = repeatedString.split("");
-				System.out.println("Frist Time: " + splittedRepeatedString.length);
 				switch (splittedRepeatedString.length) {
 				case 1:
-					if(splittedRepeatedString[0].equals("")){
-						repeatedString = splitRomanNumeral[index];
-					}
-					else if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])) {
+					if (splittedRepeatedString[0].equals(splitRomanNumeral[index])) {
 						repeatedString += splitRomanNumeral[index];
 					}
 					else{
-						repeatedString="";
+						repeatedString=splitRomanNumeral[index];
 					}
 					
 					break;
@@ -134,7 +130,7 @@ public class Converter {
 						repeatedString += splitRomanNumeral[index];
 					}
 					else{
-						repeatedString="";
+						repeatedString=splitRomanNumeral[index];
 					}
 					break;	
 				case 3:	
@@ -142,10 +138,9 @@ public class Converter {
 						return false;
 					}
 					else{
-						repeatedString="";
+						repeatedString=splitRomanNumeral[index];
 					}
 				}
-				
 			}
 		}
 		return true;
