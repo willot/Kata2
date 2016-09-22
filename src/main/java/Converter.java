@@ -45,7 +45,7 @@ public class Converter {
 		int arabicNumber =0;
 		String[] splitRomanNumeralToConvert = romanNumberToConvert.split("");
 		
-		if (!isRomanNumberARealRomanNumeral(splitRomanNumeralToConvert)){
+		if (!isRomanNumberARealRomanNumeral(splitRomanNumeralToConvert )){
 			throw new NotRomanException("This is not a Roman numeral");
 		}
 
@@ -106,9 +106,46 @@ public class Converter {
 
 
 	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
+		String repeatedString = "";
+		
 		for (int index = 0; index < splitRomanNumeral.length; index++) {
 			if (romanToArabicValueHash.get(splitRomanNumeral[index]) == null) {
 				return false;
+			}
+			else{
+				String[] splittedRepeatedString = repeatedString.split("");
+				System.out.println("Frist Time: " + splittedRepeatedString.length);
+				switch (splittedRepeatedString.length) {
+				case 1:
+					if(splittedRepeatedString[0].equals("")){
+						repeatedString = splitRomanNumeral[index];
+					}
+					else if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])) {
+						repeatedString += splitRomanNumeral[index];
+					}
+					else{
+						repeatedString="";
+					}
+					
+					break;
+				case 2:
+					
+					if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])){
+						repeatedString += splitRomanNumeral[index];
+					}
+					else{
+						repeatedString="";
+					}
+					break;	
+				case 3:	
+					if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])){
+						return false;
+					}
+					else{
+						repeatedString="";
+					}
+				}
+				
 			}
 		}
 		return true;

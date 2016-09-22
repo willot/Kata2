@@ -297,4 +297,15 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		converter.convertRomanNumeralIntoArabicNumber("JGH");
 	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseStringIsrepeated4times() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("IIII");
+	}
+	
+
 }
