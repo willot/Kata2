@@ -41,12 +41,12 @@ public class Converter {
 	}
 
 
-		public int convertRomanNumeralIntoArabicNumber(String romanNumberToConvert) {
+		public int convertRomanNumeralIntoArabicNumber(String romanNumberToConvert) throws NotRomanException {
 		int arabicNumber =0;
 		String[] splitRomanNumeralToConvert = romanNumberToConvert.split("");
 		
 		if (!isRomanNumberARealRomanNumeral(splitRomanNumeralToConvert)){
-			return arabicNumber;
+			throw new NotRomanException("This is not a Roman numeral");
 		}
 
 		else if(isLengthOfRomanNumberEqualToOne(romanNumberToConvert)){

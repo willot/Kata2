@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.Rule;
 
 public class ConverterTest {
 	
@@ -274,10 +276,25 @@ public class ConverterTest {
 		assertEquals(3999, converter.convertRomanNumeralIntoArabicNumber("MMMCMXCIX"));
 	}
 	
+	
+	@Rule
+	public ExpectedException thrown = ExpectedException.none();
+	
 	@Test
-	public void testConvertRomanNumeralCheckIfStringGivenIsARomanNumeral() throws Exception {
+	public void testThrowExceptionIfStringIsNotRomanNumeralAndOnly1Character() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
 		Converter converter = new Converter();
-		assertEquals(0, converter.convertRomanNumeralIntoArabicNumber("CMZ"));
-		assertEquals(0, converter.convertRomanNumeralIntoArabicNumber("B"));
+		converter.convertRomanNumeralIntoArabicNumber("Z");
+	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeral() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("III");
 	}
 }
