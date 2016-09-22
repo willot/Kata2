@@ -125,8 +125,10 @@ public class Converter {
 					
 					break;
 				case 2:
-					
-					if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])){
+					if(splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index]) && splitRomanNumeral[index].equals("V")){
+						return false;
+					}
+					else if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])){
 						repeatedString += splitRomanNumeral[index];
 					}
 					else{
