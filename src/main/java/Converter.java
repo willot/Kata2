@@ -1,18 +1,19 @@
 import java.util.Arrays;
 import java.util.HashMap;
 
+
 public class Converter {
 	
 	private String[] romanNumberReference= {"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
 	private Integer[] arabicNumberReferences= {1000,900,500,400,100,90,50,40,10,9,5,4,1};
-	private HashMap<String, Integer> romanToArabicValue = createRomanToArabicValueHash();
+	private HashMap<String, Integer> romanToArabicValueHash = createRomanToArabicValueHash();
 	
 
-	public String convertArabicNumberIntoRomanNUmeral(int arabicNumber) {
-		 int remainingOfArabicNumber = arabicNumber;
+	public String convertArabicNumberIntoRomanNUmeral(int arabicNumberToConvert) {
+		 int arabicNumberRemainder = arabicNumberToConvert;
 		 String romanNumeral = "";
 		 
-		if (isArabicNumberConvertibleIntoRomanNumeral(arabicNumber)){
+		if (isNumberConvertibleIntoRomanNumeral(arabicNumberToConvert)){
 			return "This is not a valid number for roman numeral";
 		}
 		
@@ -20,19 +21,19 @@ public class Converter {
 			int arabicNumberFromArrayReference = arabicNumberReferences[index];
 			String matchingRomanNumeralToArabicNumberFromArrayReference = romanNumberReference[index];
 					
-			if(arabicNumber == arabicNumberFromArrayReference ) {
+			if(arabicNumberToConvert == arabicNumberFromArrayReference ) {
 				return matchingRomanNumeralToArabicNumberFromArrayReference;
 			}
 					
-			int quotientOfArabicNumber = remainingOfArabicNumber/arabicNumberFromArrayReference;
+			int quotientOfArabicNumber = arabicNumberRemainder/arabicNumberFromArrayReference;
 	
 			if (quotientOfArabicNumber>0) {
-				remainingOfArabicNumber -= quotientOfArabicNumber*arabicNumberFromArrayReference;
+				arabicNumberRemainder -= quotientOfArabicNumber*arabicNumberFromArrayReference;
 				romanNumeral += repeatStringXtimes(matchingRomanNumeralToArabicNumberFromArrayReference,
-						quotientOfArabicNumber);	
+						quotientOfArabicNumber);
 			}
 					
-			if(remainingOfArabicNumber== 0){
+			if(arabicNumberRemainder== 0){
 				return romanNumeral;
 			}
 		}
@@ -46,7 +47,7 @@ public class Converter {
 	}
 
 	
-	private Boolean isArabicNumberConvertibleIntoRomanNumeral(int arabicNumber) {
+	private Boolean isNumberConvertibleIntoRomanNumeral(int arabicNumber) {
 		if(arabicNumber < 0 || arabicNumber >3999){
 			return true;
 		}
@@ -58,28 +59,28 @@ public class Converter {
 		int arabicNumber =0;
 		String[] splitRomanNumeral = romanNumber.split("");
 		
-		if (!isRomanNumberARealRomanNumeral(romanToArabicValue, splitRomanNumeral)){
+		if (!isRomanNumberARealRomanNumeral(romanToArabicValueHash, splitRomanNumeral)){
 			return arabicNumber;
 		}
 
 		else if(isLengthOfRomanNumberEqualToOne(romanNumber)){
-			return romanToArabicValue.get(romanNumber);
+			return romanToArabicValueHash.get(romanNumber);
 		}
 		
 		else{
 			while (splitRomanNumeral.length >0) {
 				
 				if( splitRomanNumeral.length == 1 ) {
-					arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+					arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[0]);
 					return arabicNumber;
 				}
 				
-				if(romanToArabicValue.get(splitRomanNumeral[0]) < romanToArabicValue.get(splitRomanNumeral[1])) {
-					arabicNumber += romanToArabicValue.get(splitRomanNumeral[0] + splitRomanNumeral[1]);
+				if(romanToArabicValueHash.get(splitRomanNumeral[0]) < romanToArabicValueHash.get(splitRomanNumeral[1])) {
+					arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[0] + splitRomanNumeral[1]);
 					splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,2);
 				}
 				
-				else {arabicNumber += romanToArabicValue.get(splitRomanNumeral[0]);
+				else {arabicNumber += romanToArabicValueHash.get(splitRomanNumeral[0]);
 				splitRomanNumeral = createNewArrayOfSmallerSize(splitRomanNumeral,1);
 				}
 			}
@@ -112,21 +113,21 @@ public class Converter {
 
 
 	private HashMap<String, Integer> createRomanToArabicValueHash() {
-		romanToArabicValue = new HashMap<String, Integer>();
-		romanToArabicValue.put("I",1);
-		romanToArabicValue.put("IV",4);
-		romanToArabicValue.put("V",5);
-		romanToArabicValue.put("IX",9);
-		romanToArabicValue.put("X",10);
-		romanToArabicValue.put("XL",40);
-		romanToArabicValue.put("L",50);
-		romanToArabicValue.put("XC",90);
-		romanToArabicValue.put("C",100);
-		romanToArabicValue.put("CD",400);
-		romanToArabicValue.put("D",500);
-		romanToArabicValue.put("CM",900);
-		romanToArabicValue.put("M",1000);
-		return romanToArabicValue;
+		romanToArabicValueHash = new HashMap<String, Integer>();
+		romanToArabicValueHash.put("I",1);
+		romanToArabicValueHash.put("IV",4);
+		romanToArabicValueHash.put("V",5);
+		romanToArabicValueHash.put("IX",9);
+		romanToArabicValueHash.put("X",10);
+		romanToArabicValueHash.put("XL",40);
+		romanToArabicValueHash.put("L",50);
+		romanToArabicValueHash.put("XC",90);
+		romanToArabicValueHash.put("C",100);
+		romanToArabicValueHash.put("CD",400);
+		romanToArabicValueHash.put("D",500);
+		romanToArabicValueHash.put("CM",900);
+		romanToArabicValueHash.put("M",1000);
+		return romanToArabicValueHash;
 	}
 
 }
