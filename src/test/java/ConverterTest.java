@@ -360,6 +360,40 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		converter.convertRomanNumeralIntoArabicNumber("CCCMM");
 	}
-
 	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseTensAreMissPlaced() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("MMMXXCCLV");
+	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseOnesAreMissPlaced() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("IICCCLX");
+	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseVIsRepeatedMoreThanOnce() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("CCLVXV");
+	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseLIsRepeatedMoreThanOnce() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("CLCLXV");
+	}
 }

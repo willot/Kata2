@@ -46,7 +46,7 @@ public class Converter {
 		int arabicNumber =0;
 		String[] splitRomanNumeralToConvert = romanNumberToConvert.split("");
 		
-		if (!isRomanNumberARealRomanNumeral(splitRomanNumeralToConvert )){
+		if (!isRomanNumberARealRomanNumeral(romanNumberToConvert )){
 			throw new NotRomanException("This is not a Roman numeral");
 		}
 
@@ -107,25 +107,13 @@ public class Converter {
 	}
 
 
-	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
-		String romanNumeral = convertArrayIntoString(splitRomanNumeral).toString();
-		
+	private boolean isRomanNumberARealRomanNumeral( String romanNumberToTest) {
 		Pattern pattern = Pattern.compile("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
-		if (!pattern.matcher(romanNumeral).find()){
+		if (!pattern.matcher(romanNumberToTest).find()){
 			return false;
 		};
 		return true;
 	}
-
-
-	private StringBuilder convertArrayIntoString(String[] splitRomanNumeral) {
-		StringBuilder string = new StringBuilder();
-		for(String s : splitRomanNumeral) {
-			string.append(s);
-		}
-		return string;
-	}
-
 
 	private HashMap<String, Integer> createRomanToArabicValueHash() {
 		romanToArabicValueHash = new HashMap<String, Integer>();
