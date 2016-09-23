@@ -316,4 +316,13 @@ public class ConverterTest {
 		converter.convertRomanNumeralIntoArabicNumber("XXCCCCV");
 	}
 	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseVIsRepeated() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("CCXXVV");
+	}
+	
 }

@@ -107,6 +107,8 @@ public class Converter {
 
 	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
 		String repeatedString = "";
+		String[] impossibleRomanNumeral={"VV"};
+		String romanNumeral = convertArrayIntoString(splitRomanNumeral).toString();
 		
 		for (int index = 0; index < splitRomanNumeral.length; index++) {
 			if (romanToArabicValueHash.get(splitRomanNumeral[index]) == null) {
@@ -145,7 +147,23 @@ public class Converter {
 				}
 			}
 		}
+		
+		for (int i = 0; i < impossibleRomanNumeral.length; i++) {
+			if(romanNumeral.contains(impossibleRomanNumeral[0])){
+				return false;
+			}
+				
+		}
 		return true;
+	}
+
+
+	private StringBuilder convertArrayIntoString(String[] splitRomanNumeral) {
+		StringBuilder string = new StringBuilder();
+		for(String s : splitRomanNumeral) {
+			string.append(s);
+		}
+		return string;
 	}
 
 
