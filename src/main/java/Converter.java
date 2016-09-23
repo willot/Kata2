@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 
 public class Converter {
@@ -50,25 +51,26 @@ public class Converter {
 		}
 
 		else if(isLengthOfRomanNumberEqualToOne(romanNumberToConvert)){
-			return matchingArabicNumber(romanNumberToConvert);
+			return matchingArabicNumberValue(romanNumberToConvert);
 		}
 		
 		else{
 			while (splitRomanNumeralToConvert.length >0) {
 				String firstLetterToConvert = splitRomanNumeralToConvert[0];
 				if( splitRomanNumeralToConvert.length == 1 ) {
-					arabicNumber += matchingArabicNumber(firstLetterToConvert);
+					arabicNumber += matchingArabicNumberValue(firstLetterToConvert);
 					return arabicNumber;
 				}
 				String secondLetterToConvert = splitRomanNumeralToConvert[1];
 				
-				if(matchingArabicNumber(firstLetterToConvert) < matchingArabicNumber(secondLetterToConvert)) {
-					arabicNumber += matchingArabicNumber(secondLetterToConvert) - matchingArabicNumber(firstLetterToConvert);
+				if(matchingArabicNumberValue(firstLetterToConvert) < matchingArabicNumberValue(secondLetterToConvert)) {
+					arabicNumber += matchingArabicNumberValue(secondLetterToConvert) - matchingArabicNumberValue(firstLetterToConvert);
 					splitRomanNumeralToConvert = createNewArrayOfSmallerSize(splitRomanNumeralToConvert,2);
 				}
 				
-				else {arabicNumber += matchingArabicNumber(firstLetterToConvert);
-				splitRomanNumeralToConvert = createNewArrayOfSmallerSize(splitRomanNumeralToConvert,1);
+				else {
+					arabicNumber += matchingArabicNumberValue(firstLetterToConvert);
+					splitRomanNumeralToConvert = createNewArrayOfSmallerSize(splitRomanNumeralToConvert,1);
 				}
 			}
 			return arabicNumber;
@@ -87,7 +89,7 @@ public class Converter {
 		return false;
 	}
 		
-	private Integer matchingArabicNumber(String romanNumeral) {
+	private Integer matchingArabicNumberValue(String romanNumeral) {
 		return romanToArabicValueHash.get(romanNumeral);
 	}
 
@@ -106,7 +108,6 @@ public class Converter {
 
 
 	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
-//		String repeatedString = "";
 		String[] impossibleRomanNumeral={"VV","LL","DD","IIII","XXXX","CCCC","MMMM"};
 		String romanNumeral = convertArrayIntoString(splitRomanNumeral).toString();
 		
@@ -122,6 +123,11 @@ public class Converter {
 			}
 				
 		}
+		
+		Pattern pattern = Pattern.compile("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+		if (!pattern.matcher(romanNumeral).find()){
+			return false;
+		};
 		return true;
 	}
 
