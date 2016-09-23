@@ -333,6 +333,24 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		converter.convertRomanNumeralIntoArabicNumber("CCXXVV");
 	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseLIsRepeated() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("CLLXIV");
+	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseDIsRepeated() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("CDDXV");
+	}
 
 	
 }

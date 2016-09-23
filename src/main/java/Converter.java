@@ -107,7 +107,7 @@ public class Converter {
 
 	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
 //		String repeatedString = "";
-		String[] impossibleRomanNumeral={"VV","IIII","XXXX","CCCC","MMMM"};
+		String[] impossibleRomanNumeral={"VV","LL","DD","IIII","XXXX","CCCC","MMMM"};
 		String romanNumeral = convertArrayIntoString(splitRomanNumeral).toString();
 		
 		for (int index = 0; index < splitRomanNumeral.length; index++) {
