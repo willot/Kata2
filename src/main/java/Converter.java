@@ -108,23 +108,9 @@ public class Converter {
 
 
 	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
-		String[] impossibleRomanNumeral={"VV","LL","DD","IIII","XXXX","CCCC","MMMM"};
 		String romanNumeral = convertArrayIntoString(splitRomanNumeral).toString();
 		
-		for (int index = 0; index < splitRomanNumeral.length; index++) {
-			if (romanToArabicValueHash.get(splitRomanNumeral[index]) == null) {
-				return false;
-			}
-		}
-		
-		for (int i = 0; i < impossibleRomanNumeral.length; i++) {
-			if(romanNumeral.contains(impossibleRomanNumeral[i])){
-				return false;
-			}
-				
-		}
-		
-		Pattern pattern = Pattern.compile("^M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
+		Pattern pattern = Pattern.compile("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$");
 		if (!pattern.matcher(romanNumeral).find()){
 			return false;
 		};
