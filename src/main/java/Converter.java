@@ -106,50 +106,18 @@ public class Converter {
 
 
 	private boolean isRomanNumberARealRomanNumeral( String[] splitRomanNumeral) {
-		String repeatedString = "";
-		String[] impossibleRomanNumeral={"VV"};
+//		String repeatedString = "";
+		String[] impossibleRomanNumeral={"VV","IIII","XXXX","CCCC","MMMM"};
 		String romanNumeral = convertArrayIntoString(splitRomanNumeral).toString();
 		
 		for (int index = 0; index < splitRomanNumeral.length; index++) {
 			if (romanToArabicValueHash.get(splitRomanNumeral[index]) == null) {
 				return false;
 			}
-			else{
-				String[] splittedRepeatedString = repeatedString.split("");
-				switch (splittedRepeatedString.length) {
-				case 1:
-					if (splittedRepeatedString[0].equals(splitRomanNumeral[index])) {
-						repeatedString += splitRomanNumeral[index];
-					}
-					else{
-						repeatedString=splitRomanNumeral[index];
-					}
-					
-					break;
-				case 2:
-					if(splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index]) && splitRomanNumeral[index].equals("V")){
-						return false;
-					}
-					else if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])){
-						repeatedString += splitRomanNumeral[index];
-					}
-					else{
-						repeatedString=splitRomanNumeral[index];
-					}
-					break;	
-				case 3:	
-					if (splittedRepeatedString[splittedRepeatedString.length -1].equals(splitRomanNumeral[index])){
-						return false;
-					}
-					else{
-						repeatedString=splitRomanNumeral[index];
-					}
-				}
-			}
 		}
 		
 		for (int i = 0; i < impossibleRomanNumeral.length; i++) {
-			if(romanNumeral.contains(impossibleRomanNumeral[0])){
+			if(romanNumeral.contains(impossibleRomanNumeral[i])){
 				return false;
 			}
 				

@@ -308,12 +308,21 @@ public class ConverterTest {
 	}
 	
 	@Test
-	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseStringIsrepeated4timesInMiddleOfString() throws NotRomanException{
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseCIsRepeated4times() throws NotRomanException{
 		thrown.expect(NotRomanException.class);
 		thrown.expectMessage("This is not a Roman numeral");
 		
 		Converter converter = new Converter();
 		converter.convertRomanNumeralIntoArabicNumber("XXCCCCV");
+	}
+	
+	@Test
+	public void testThrowExceptionIfStringIsNotRomanNumeralBecauseBecauseMIsRepeated4times() throws NotRomanException{
+		thrown.expect(NotRomanException.class);
+		thrown.expectMessage("This is not a Roman numeral");
+		
+		Converter converter = new Converter();
+		converter.convertRomanNumeralIntoArabicNumber("MMMMV");
 	}
 	
 	@Test
@@ -324,5 +333,6 @@ public class ConverterTest {
 		Converter converter = new Converter();
 		converter.convertRomanNumeralIntoArabicNumber("CCXXVV");
 	}
+
 	
 }
